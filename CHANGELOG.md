@@ -4,6 +4,22 @@ All notable changes to `phil/virtual-classroom-bundle` will be documented in thi
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.1.1-alpha - 2026-11-24
+
+### Changed
+
+- The development requirements accept `phil/courses-bundle` 0.3 and `phil/privacy-bundle` 0.3, the minor versions of
+  their main branches and no earlier one, so that the package installs on its own beside those bundles.
+- Requires the latest minor of each dependency (`doctrine/dbal` 4.6, `symfony/service-contracts` 3.8), and of each
+  development requirement (`doctrine/orm` 3.8, `doctrine/doctrine-bundle` 3.4).
+
+### Security
+
+- The Flex recipe wrote into `.env` an example value of `BBB_SECRET`. The recipe writes the variable empty, with a
+  comment on where to find the secret of the server, and the service of a BigBlueButton or self-hosted Jitsi server
+  refuses a secret that begins with `change-me` or `changeme` when it is built
+  (`Infrastructure\DependencyInjection\ServerSecret`).
+
 ## 0.1.0-alpha - 2026-11-20
 
 ### Added
